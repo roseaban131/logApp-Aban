@@ -34,4 +34,4 @@ This repo is for Practice Set 5-06
 ## Author
 I am still learning for this project and I have many errors encountered and that will challenge you to analyze the code and to understand that you need to focus and look for the solution although, I am still having a hard times learning this kind of project that I need to search more about it.
 
-![Author](author.png)
+![Author](author.jpg)
