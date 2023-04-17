@@ -22,8 +22,8 @@
                 <thead class="thead-dark">
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
                     <th scope="col">Address</th>
                     <th scope="col">Log Date and Time</th>
                     <th scope="col">Action</th>

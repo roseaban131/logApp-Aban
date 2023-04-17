@@ -1,22 +1,15 @@
-<?php
-  
-
-
-
-?>
 <?php 
   include('inc/header.php'); 
   require('config/config.php');
 	require('config/db.php');
 
-	// Check For Submit
+	
 	if(isset($_POST['submit'])){
-		// Get form data
-		$lname = mysqli_real_escape_string($conn,$_POST['lname']);
-		$fname = mysqli_real_escape_string($conn,$_POST['fname']);
-		$address = mysqli_real_escape_string($conn,$_POST['address']);
+		
+		$username = mysqli_real_escape_string($conn,$_POST['username']);
+		$password = mysqli_real_escape_string($conn,$_POST['password']);
 
-		$query = "INSERT INTO person(lastname, firstname,address,logdt) VALUES('$lname', '$fname', '$address', now())";
+		$query= "INSERT INTO `useraccount`( `username`, `password`) VALUES ('$username','$password')";
 
 		if(mysqli_query($conn, $query)){
       header('Location: guestbook-list.php'.ROOT_URL.' ');
@@ -25,6 +18,7 @@
 		}
 	}
   ?>
+  
   <br/>
   <div style="width:30%; margin: auto; text-align: center;">
     <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" class="form-signin">
