@@ -1,0 +1,45 @@
+<?php
+  
+
+
+
+?>
+<?php 
+  include('inc/header.php'); 
+  require('config/config.php');
+	require('config/db.php');
+
+	// Check For Submit
+	if(isset($_POST['submit'])){
+		// Get form data
+		$lname = mysqli_real_escape_string($conn,$_POST['lname']);
+		$fname = mysqli_real_escape_string($conn,$_POST['fname']);
+		$address = mysqli_real_escape_string($conn,$_POST['address']);
+
+		$query = "INSERT INTO person(lastname, firstname,address,logdt) VALUES('$lname', '$fname', '$address', now())";
+
+		if(mysqli_query($conn, $query)){
+      header('Location: guestbook-list.php'.ROOT_URL.' ');
+		} else {
+			echo 'ERROR: '. mysqli_error($conn);
+		}
+	}
+  ?>
+  <br/>
+  <div style="width:30%; margin: auto; text-align: center;">
+    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" class="form-signin">
+      <img class="mb-4" src="img/bootstrap.svg" alt="" width="100" height="100">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+      <br/><label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+    </form>
+  </div>
+<?php include('inc/footer.php'); ?>
