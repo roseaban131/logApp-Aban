@@ -2,17 +2,17 @@
 	require('config/config.php');
 	require('config/db.php');
 
-	$id = $_GET['id'];
+	
 	if(isset($_POST['submit'])){
 		
 		$lname = mysqli_real_escape_string($conn,$_POST['lname']);
 		$fname = mysqli_real_escape_string($conn,$_POST['fname']);
 		$address = mysqli_real_escape_string($conn,$_POST['address']);
 
-		$query= "UPDATE `person` SET `lastname`='$lname',`firstname`='$fname',`address`='$address', WHERE id =$id";
+		$query = "INSERT INTO person(lastname, firstname,address,logdt) VALUES('$lname', '$fname', '$address', now())";
 
 		if(mysqli_query($conn, $query)){
-      header('Location: index.php'.ROOT_URL.' ');
+      header('Location: guestbook-list.php'.ROOT_URL.' ');
 		} else {
 			echo 'ERROR: '. mysqli_error($conn);
 		}
@@ -20,11 +20,21 @@
 ?>
 
 
-<?php include('inc/header.php'); ?>
+<?php include('inc/header.php'); 
+          $query = "SELECT * FROM `person`";
+          $result = mysqli_query($conn, $query);
+          while ($row = mysqli_fetch_assoc($result)){
+              ?>
+              
+              <?php
+                }
+            ?>
+
+
 <div class="container">
 <br/>
-  <h2>Registration</h2>
-
+  <h2>Add New Registration</h2>
+  
   <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" class="was-validated">
     <div class="form-group">
       <label for="uname">Last name:</label>
@@ -51,7 +61,7 @@
         <div class="invalid-feedback">Check this checkbox to continue.</div>
       </label>
     </div>
-    <button type="submit" name="submit" value="Submit" class="btn btn-primary">Save</button>
+    <button type="submit" name="submit" value="Submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 <?php include('inc/footer.php'); ?>

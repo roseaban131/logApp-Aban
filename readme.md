@@ -11,24 +11,24 @@ This repo is for Practice Set 5-06
 
 # Visuals
 
-###__Installation__
+### __Installation__
 
 ![Installation](installation.png)
     - Preparation in your database, this will create you first for your database name included in your project by filling your database password and database host etc.
 
-###__Register__
+### __Register__
 
 ![Register](register.png)
     - In this case, this is you can add data into your database, you will see your data after the registration in the guest list page.
  
-###__Login__
+### __Login__
 
 ![Login](login.png)
     - This will able you to log in using your personal data.
 
-###__Guest__
+### __Guest__
 
-![Guest](guest.png)
+![Guest](guestbook-list.png)
     - You will see there the guest list after the registration and they will automatically save their information on the guest list.
 
 ## Author

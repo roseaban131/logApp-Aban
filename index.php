@@ -12,7 +12,7 @@
 		$query = "INSERT INTO person(lastname, firstname,address,logdt) VALUES('$lname', '$fname', '$address', now())";
 
 		if(mysqli_query($conn, $query)){
-      header('Location:'.ROOT_URL.' ');
+      header('Location: guestbook-list.php'.ROOT_URL.' ');
 		} else {
 			echo 'ERROR: '. mysqli_error($conn);
 		}
@@ -20,11 +20,22 @@
 ?>
 
 
-<?php include('inc/header.php'); ?>
+<?php include('inc/header.php'); 
+          $query = "SELECT * FROM `person`";
+          $result = mysqli_query($conn, $query);
+          while ($row = mysqli_fetch_assoc($result)){
+              ?>
+              
+              <?php
+                }
+            ?>
+
+
 <div class="container">
+
 <br/>
   <h2>Registration</h2>
-
+  
   <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" class="was-validated">
     <div class="form-group">
       <label for="uname">Last name:</label>

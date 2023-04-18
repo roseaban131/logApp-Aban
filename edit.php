@@ -3,15 +3,17 @@
 	require('config/db.php');
 
 	$id = $_GET['pid'];
+
 	if(isset($_POST['submit'])){
-		
 		$lname = mysqli_real_escape_string($conn,$_POST['lname']);
 		$fname = mysqli_real_escape_string($conn,$_POST['fname']);
 		$address = mysqli_real_escape_string($conn,$_POST['address']);
 
-		$query= "UPDATE `person` SET `lastname`='$lname',`firstname`='$fname',`address`='$address', WHERE id =$id";
+		$sql = "UPDATE `person` SET `lname`='$lname',`fname`='$fname',`address`='$address', WHERE pid=$id";
 
-		if(mysqli_query($conn, $query)){
+    $result = mysqli_query($conn, $sql);
+   
+		if(mysqli_query($conn, $sql)){
       header('Location: guestbook-list.php'.ROOT_URL.' ');
 		} else {
 			echo 'ERROR: '. mysqli_error($conn);
@@ -23,8 +25,13 @@
 <?php include('inc/header.php'); ?>
 <div class="container">
 <br/>
-  <h2>Registration</h2>
-
+  <h2>Edit Registration</h2>
+    <?php
+    
+      $sql = "SELECT * FROM `person` where pid=$id LIMIT 1";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+    ?>
   <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" class="was-validated">
     <div class="form-group">
       <label for="uname">Last name:</label>
