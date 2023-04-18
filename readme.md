@@ -14,6 +14,7 @@ This repo is for Practice Set 5-06
 ### __Installation__
 
 ![Installation](installation.png)
+![Column](column.png)
     - Preparation in your database, this will create you first for your database name included in your project by filling your database password and database host etc.
 
 ### __Register__
@@ -28,7 +29,7 @@ This repo is for Practice Set 5-06
 
 ### __Guest__
 
-![Guest](guestbook-list.png)
+![Guest](guest.png)
     - You will see there the guest list after the registration and they will automatically save their information on the guest list.
 
 ## Author
