@@ -10,6 +10,7 @@ This repo is for Practice Set 5-06
     A   "logging application," is a type of software tool that is designed to accessing the list of the guest you will able to see or keep track of types of data such as the names, date and time, address of the guests.
 
 # Visuals
+![Funny GIF](giphy.gif)
 
 ### __Installation__
 
