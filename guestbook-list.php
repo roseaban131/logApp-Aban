@@ -27,7 +27,7 @@
                     <th scope="col">Firstname</th>
                     <th scope="col">Address</th>
                     <th scope="col">Log Date and Time</th>
-                    
+                    <th scope="col">Action</th>
                     </tr>
                 </thead>
 		
@@ -37,12 +37,15 @@
                 
                 foreach($persons as $person) :?>
                     <tr>
-                    <th scope="row"><?php echo $person['pid'] ?></th>
+                    <th><?php echo $person['pid'] ?></th>
                     <td><?php echo $person['lastname']?></td>
                     <td><?php echo $person['firstname']?></td>
                     <td><?php echo $person['address'] ?></td>
                     <td><?php echo $person['logdt'] ?></td>
-                    
+                    <td>
+                        <a href="edit_guestbook-list.php?id=<?php echo $person['pid'] ?>" class="btn btn-success">Edit</a>
+                        <a href="delete-list.php?id=<?php echo $person['pid'] ?>" class="btn btn-danger">Delete</a>
+                    </td>
                     </tr>
                 <?php endforeach; 
                 ?>   

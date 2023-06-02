@@ -18,7 +18,8 @@
 		}
 	}
   ?>
-  
+
+   
   <br/>
   <div style="width:30%; margin: auto; text-align: center;">
     <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" class="form-signin">
@@ -37,3 +38,5 @@
     </form>
   </div>
 <?php include('inc/footer.php'); ?>
+<body>
+</html>
